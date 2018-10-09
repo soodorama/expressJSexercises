@@ -4,6 +4,25 @@ class Node {
         this.left = null;
         this.right = null;
     }
+    addToSubTree(val) {
+        if (this.val < val) {
+            if (this.right != null) {
+                return this.right.addToSubTree(val);
+            }
+            else {
+                this.right = new Node(val);
+            }
+        }
+        else {
+            if (this.left != null) {
+                return this.left.addToSubTree(val);
+            }
+            else {
+                this.left = new Node(val);
+            }
+        }
+        return;
+    }
 }
 
 class BST {
@@ -33,6 +52,15 @@ class BST {
         else {
             follower.left = node;
         }
+        return this;
+    }
+
+    addR(val) {
+        if (this.root == null) {
+            this.root = new Node(val);
+            return this;
+        }
+        this.root.addToSubTree(val);
         return this;
     }
 }
