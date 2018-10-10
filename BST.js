@@ -63,4 +63,49 @@ class BST {
         this.root.addToSubTree(val);
         return this;
     }
+
+    inorder() {
+        this.inorderFromRoot(this.root)
+    }
+
+    inorderFromRoot(node) {
+        if (node.left) {
+            this.inorderFromRoot(node.left);
+        }
+        console.log(node.val)
+        if(node.right) {
+            this.inorderFromRoot(node.right)
+        }
+        return this;
+    }
+
+    preorder() {
+        this.preorderFromRoot(this.root)
+    }
+
+    preorderFromRoot(node) {
+        console.log(node.val);
+        if (node.left) {
+            this.preorderFromRoot(node.left)
+        }
+        if (node.right) {
+            this.preorderFromRoot(node.right)
+        }
+        return this;
+    }
+
+    postorder() {
+        this.postorderFromRoot(this.root)
+    }
+
+    postorderFromRoot(node) {
+        if (node.left) {
+            this.postorderFromRoot(node.left)
+        }
+        if (node.right) {
+            this.postorderFromRoot(node.right)
+        }
+        console.log(node.val);
+        return this;
+    }
 }
