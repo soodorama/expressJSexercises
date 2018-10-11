@@ -108,4 +108,26 @@ class BST {
         console.log(node.val);
         return this;
     }
+
+    preorderNonRecursive() {
+        let stack = [this.root]
+        while (stack.length) {
+            
+            let thisNode = stack.pop()
+            console.log(thisNode.val)
+            
+            if (thisNode.right) {
+            	stack.push(thisNode.right)
+            }
+            if (thisNode.left) {
+            	stack.push(thisNode.left)
+            }
+        }
+    }
 }
+
+var bst = new BST();
+
+bst.add(12).add(7).add(5).add(3).add(6).add(9).add(17).add(15).add(21).add(13).add(16)
+
+bst.preorderNonRecursive()
